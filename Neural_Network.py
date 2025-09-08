@@ -49,7 +49,7 @@ class OptimizedNeuralNetwork:
         Elements in all_y_trues correspond to those in data.
         '''
         learn_rate = 0.1
-        epochs = 1000 # number of times to loop through the dataset
+        epochs = 1000
         
         for epoch in range(epochs):
             for x,y_true in zip(data,all_true_y):
@@ -64,7 +64,6 @@ class OptimizedNeuralNetwork:
                 y_pred = o1
                 
                 # --- Calculate partial derivatives.
-                # --- Naming: d_L_d_w1 represents "partial L / partial w1"
                 d_L_d_ypred = -2 * (y_true - y_pred)
 
                 # Neuron o1
@@ -103,22 +102,22 @@ class OptimizedNeuralNetwork:
             
             #cal tot loss
             if epoch % 10 ==0:
-                y_preds = np.apply_along_axis(self.feedforward,1,data)
+                y_pred = np.apply_along_axis(self.feedforward,1,data)
                 loss = mse_loss(all_true_y,y_pred)
                 print("Epoch %d loss: %.3f" % (epoch, loss))
                 
 # Define dataset
 data = np.array([
-  [-2, -1],  # Alice
-  [25, 6],   # Bob
-  [17, 4],   # Charlie
-  [-15, -6], # Diana
+  [-2, -1],  
+  [25, 6],   
+  [17, 4],   
+  [-15, -6], 
 ])
 all_true_y = np.array([
-  1, # Alice
-  0, # Bob
-  0, # Charlie
-  1, # Diana
+  1, 
+  0, 
+  0, 
+  1, 
 ])
 
 # Train our neural network!
@@ -139,6 +138,6 @@ if pred_2 > 0.5:
 else:
     gender_2 = "Male"
     
-print("Emily: %.3f" % pred_1 + " Gender is => ",gender_1) # 0.951 - F
-print("Frank: %.3f" % pred_2 + " Gender is => ",gender_2) # 0.039 - M               
+print("Emily: %.3f" % pred_1 + " Gender is => ",gender_1)
+print("Frank: %.3f" % pred_2 + " Gender is => ",gender_2)              
     
