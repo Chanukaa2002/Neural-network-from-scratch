@@ -82,7 +82,3 @@ python Neural_Network.py
 
 ---
 
-## Notes
-
-- Only one network type should be active at a time in `Neuron.py` (comment/uncomment as needed).
-- The code is for educational purposes and demonstrates the basics of neural networks and learning from scratch.
