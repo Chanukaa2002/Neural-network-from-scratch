@@ -12,6 +12,7 @@ class Neuron:
     def feedforward(self,inputs):
         #calculate dot product of (weight x inputs) + bias
         tot = np.dot(self.weights,inputs) + self.bias
+        print(tot)
         return sigmoid(tot)
         
         
